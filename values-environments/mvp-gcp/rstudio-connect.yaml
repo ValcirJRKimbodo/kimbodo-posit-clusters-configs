@@ -1,0 +1,80 @@
+fullnameOverride: rstudio-connect
+ingressHost: posit01gcp-connect.kimbodo.com
+nodeSelector:
+    apptype: workspaces
+launcher:
+    templateValues:
+        pod:
+            nodeSelector:
+                apptype: sessionsholder
+license:
+    # -- the file section is used for licensing with a license file
+    file:
+        # -- secret is an existing secret with a license file in it
+        secret: rstudio-license
+        # -- secretKey is the key for the secret to use for the license file
+        secretKey: rstudio-connect.lic
+# Configures shared storage for the Posit Connect pod.
+sharedStorage:
+    # -- mount true means that the PVC is already created.
+    # -- in our environment we always gonna create it before apply the rstudio-connect chart
+    # -- or use a cloud storage, but never keep to rstudio create it
+    create: true
+    # The name of the PVC created for Connect's data directory.
+    # Also specified by `Launcher.DataDirPVCName` below.
+    name: rsc-pvc
+    # The storageClass to use for Connect's data directory. Must
+    # support RWX.
+    # Replace with your storage class name if different.
+    storageClassName: rsc-nfs
+    requests:
+        storage: 10G
+# -- Defines resources for the rstudio-connect container
+# -- Default valuess is for a MVP
+resources:
+    requests:
+        memory: 128Mi
+        cpu: 100m
+    limits:
+        memory: 2Gi
+        cpu: 2000m
+# -- HPA define how much repelpicas we will have for rstudio-connect pod
+hpa:
+    minReplicas: 1
+    maxReplicas: 5
+# -- PDB enabled without any more configuration keep at least 1 up
+podDisruptionBudget:
+    minAvailable: 1
+# ````
+config:
+    # set the database to use
+    Database:
+        Provider: Postgres
+    # Postgres basic config  
+    Postgres:
+        URL: postgres://connect@postgresql.postgresql.svc.cluster.local:5432/connect?sslmode=disable
+    # Authentication type
+    Authentication:
+        Provider: oauth2
+    OAuth2:
+        ClientId: ENC[AES256_GCM,data:jFHu8LXFpVQHpUWgdIxUd4um5ISxFUxV1eT4uDC5oXI1767wdd38pt4yZNdtmaRv7N14dYv30YHKb5VAiK+Ousy/wY5LF/CD,iv:sFk0xabqWR9e8Lyi9r+HeAdhZdKeWyew7uQB7YepQp4=,tag:aDByi9wIhMDy42l05VIjkw==,type:str]
+        ClientSecret: ENC[AES256_GCM,data:Nar4/yYItPjG+69jIMzRjcmWGCYfKjCZsnOi0SC8yLWykgw=,iv:9crci8igUA2lw+zfflLpaS2Qx/Hr6OrToxvU3SsZkYs=,tag:Q9TcnYczXZg0KxFOSQZyMA==,type:str]
+        AllowedDomain: kimbodo.com
+# -- pod properties to add to rstudio-connect pod
+pod:
+    env:
+        - name: CONNECT_POSTGRES_PASSWORD
+          valueFrom:
+            # -- this secret is created by postgresql chart
+            secretKeyRef:
+                name: rstudio-postgresql
+                key: password
+sops:
+    gcp_kms:
+        - resource_id: projects/gcp-k8s-demo-posit/locations/global/keyRings/sops-keyring/cryptoKeys/sops-key
+          created_at: "2025-07-21T20:16:01Z"
+          enc: CiQAi2o7BgvA0Dskbc2K0IL02HMU6AF1srYtOZ/RpYt3/kmByc8SSQD9pUq7fdiGkJ8rLfoEat7amQDApSnBireKII55Y1l6wL7qQ+8u288eLxHI2IFzAg9PIff2/zFtNScNmJACRl69h2l7bq7lexo=
+    lastmodified: "2025-07-21T20:16:02Z"
+    mac: ENC[AES256_GCM,data:f/gRBNpFKAFYq+eDfJ7Rn6k6B+Y7aTRD0KzDml8PqAn/EblWnEeO58OqYT79r013Y3u3RPhyRItf4dzreiRIpvLZhqVtZqBRH1M4r3L0yeJerv8y/MUzn8cZHknIiCL6v+TfuxmUeIazweEJU9gUOGAe4eAPq/ew/1nGenQWXfk=,iv:M/ts8huL9p3N50Py8iOu+6A6+71+lTcBTzHO0iqMVys=,tag:dhUerTKm7ZhXUqQXhbD6vg==,type:str]
+    encrypted_regex: Client
+    version: 3.10.2

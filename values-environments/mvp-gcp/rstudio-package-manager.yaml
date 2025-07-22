@@ -1,0 +1,51 @@
+fullnameOverride: rstudio-package-manager
+ingressHost: posit01gcp-package.kimbodo.com
+
+nodeSelector:
+  apptype: workspaces
+
+# Controls how many instances of Posit Package Manager are created.
+replicas: 1
+
+image:
+  repository: kimbodovalcir/kimbodo-posit-package-manager
+  tag: latest
+  pullPolicy: IfNotPresent
+
+# Mounts the license file appropriately from the Secret
+license:
+  file:
+    secret: rstudio-license
+    secretKey: rstudio-package-manager.lic
+
+# Adds an environment variable containing the PostgreSQL password from a Secret
+pod:
+  env:
+    - name: PACKAGEMANAGER_POSTGRES_PASSWORD
+      valueFrom:
+        secretKeyRef:
+          name: rstudio-postgresql
+          key: password
+
+
+# Configures Package Manager shared storage
+sharedStorage:
+  create: true
+  # The name of the PVC created for Package Managers's shared storage directory.
+  name: package-manager-shared-pvc
+  # The storageClass to use for Package Manager's shared storage directory. Must support RWX.
+  # Replace with your storage class name.
+  storageClassName: rsc-nfs
+  requests:
+    storage: 30G
+
+# The config section is converted into the correct configuration files and mounted.
+config:
+  Database:
+    Provider: postgres
+  Postgres:
+    URL: "postgres://rspmuser@postgresql-package-manager.postgresql.svc.cluster.local:5432/rstudio_pm?sslmode=disable"
+  Server:
+    PythonVersion: /usr/bin/python3  
+    # While it is possible to set a Postgres password here in the values file,
+    # we recommend adding it from a Secret as an environment variable as shown in pod.env

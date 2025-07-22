@@ -1,0 +1,117 @@
+fullnameOverride: rstudio-workbench
+nodeSelector:
+    apptype: workspaces
+launcher:
+    templateValues:
+        pod:
+            nodeSelector:
+                apptype: sessionsholder
+# -- Host to ingress posit-connect
+ingressHost: null
+# -- HPA define how much repelpicas we will have for rstudio-connect pod
+hpa:
+    minReplicas: 1
+    maxReplicas: 5
+# Mounts the license file appropriately from the Secret
+license:
+    file:
+        # Replace with the name of your license file secret and key
+        secret: rstudio-license
+        secretKey: rstudio-workbench.lic
+# Configures user home directory shared storage
+homeStorage:
+    create: true
+    # The name of the PVC created for Workbench's user home directory shared storage.
+    name: workbench-user-pvc
+    # The storageClass to use for Workbench's user home directory. Must support RWX.
+    # Replace with your storage class name.
+    storageClassName: rsc-nfs
+    requests:
+        storage: 10G
+# Configures Workbench shared storage
+sharedStorage:
+    create: true
+    # The name of the PVC created for Workbench's shared storage directory.
+    name: workbench-shared-pvc
+    # The storageClass to use for Workbench's shared storage directory. Must support RWX.
+    # Replace with your storage class name.
+    storageClassName: rsc-nfs
+    requests:
+        storage: 1G
+# Adds an environment variable containing the PostgreSQL password from a Secret
+pod:
+    extraVolumes:
+        - name: rstudio-run
+          emptyDir: {}
+    extraVolumeMounts:
+        - name: rstudio-run
+          mountPath: /var/run/rstudio-server/rstudio-rserver
+    env:
+        - name: WORKBENCH_POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+                # Replace with the name of your database password secret and key
+                name: rstudio-postgresql
+                key: password
+# Creates a test user to verify installation
+userCreate: true
+# The config section is converted into the correct configuration files and are
+# mounted to the server/session pods as needed.
+config:
+    secret:
+        database.conf:
+            provider: postgresql
+            connection-uri: postgres://connect@postgresql.postgresql.svc.cluster.local:5432/connect?sslmode=disable
+            # While it is possible to set a Postgres password here in the values file,
+        # we recommend adding it from a Secret as an environment variable as shown in pod.env
+        openid-client-secret:
+            client-id: ENC[AES256_GCM,data:GdQV7ip/pslHX2uECEro83uGn94aWRq8IWlGu+ccCOgBwx7oslgukUhPLOij2fTsjyiNAG9dqiwchdLcOd34mhbnusl55S4o,iv:4rcJlfIRzKn0fWZt5n2nWCWhxHiqiGlvtsOV06mjp+g=,tag:U3VyJqvFnFzcRoriYiJRTA==,type:str]
+            client-secret: ENC[AES256_GCM,data:wk8kWrY1eP/zKYZqWaWerXubSPS28JUW8Lf/68vH6lGzdXg=,iv:RXj6wZ4V60dWqprtJbDp9FazcBhGCaQuahDrr9chD48=,tag:9XSUAN91B+9KrGhZEQxLog==,type:str]
+    session:
+        rsession.conf:
+            # These settings apply to RStudio Pro IDE sessions
+            session-timeout-minutes: 60
+            session-timeout-suspend: 1
+            session-quit-child-processes-on-exit: 1
+        repos.conf:
+            # This will set the Posit Public Package Manager (P3M) as the default R repository
+            # for Workbench users. This is recommended as P3M provides linux binaries for many
+            # R packages which will decrease package installation time. If you have your own
+            # Posit Package Manager server then replace these URLs with the URLs of your server.
+            CRAN: https://packagemanager.posit.co/cran/__linux__/jammy/latest
+    server:
+        rserver.conf:
+            # https://docs.posit.co/ide/server-pro/admin/job_launcher/using_docker_images.html
+            launcher-sessions-auto-update: 1
+            user-provisioning-enabled: 1
+            user-provisioning-register-on-first-login: 1
+            auth-openid: "1"
+            auth-openid-issuer: https://accounts.google.com
+            auth-openid-username-claim: given_name
+        jupyter.conf:
+            # These settings apply to Jupyter Notebook and JupyterLab IDE sessions
+            session-cull-minutes: 60
+            session-shutdown-minutes: 5
+    profiles:
+        launcher.kubernetes.profiles.conf:
+            '*':
+                # These settings are applied for all users and can be changed to suit
+                # your particular user needs. See the following resources for more information:
+                # https://github.com/rstudio/helm/tree/main/charts/rstudio-workbench#etcrstudiolauncherkubernetesprofilesconf
+                # https://docs.posit.co/ide/server-pro/job_launcher/kubernetes_plugin.html#kube-profiles
+                default-cpus: "1.0"
+                default-mem-mb: "2048"
+                max-cpus: "4.0"
+                max-mem-mb: "8192"
+                # https://docs.posit.co/ide/server-pro/admin/job_launcher/using_docker_images.html
+                container-images: kimbodovalcir/kimbodo-posit-workbench-session:1.0.1-SNAPSHOT-07141625
+                default-container-image: kimbodovalcir/kimbodo-posit-workbench-session:1.0.1-SNAPSHOT-07141625
+sops:
+    gcp_kms:
+        - resource_id: projects/gcp-k8s-demo-posit/locations/global/keyRings/sops-keyring/cryptoKeys/sops-key
+          created_at: "2025-07-22T02:23:48Z"
+          enc: CiQAi2o7BiGJzuxfiaZuh8MPM6J14SNOrZdmp0q0Gs2btvOT3DcSSQD9pUq76mTcKxMKvmUxUajys/+PvyJ15NGrJP4mjHaiA3DFKj49eFByTTg+r/baaBeMzRhz8JZZgN/rnYolQ+WjNFuOL1s0Dlk=
+    lastmodified: "2025-07-22T02:23:49Z"
+    mac: ENC[AES256_GCM,data:5uOAj2vxVTF7YNfyn2wfaAYs4BZ8DF4Fv+EY4K35OOfzBJ7INnn7d7YUamy25ANA6vBfypZ3OAkwoJ4ydPDJvsWcd2wfxUPyFqm+a9008PKULma3XMpLXETHI+HgexxRo3hHBiXN9aHZLM0nDwD/C7TgVvaRlYH0ZBVlwiC1+8A=,iv:3JZdeltxTXp5l3ojUHjsMQNlAr6oO3wdgZjrAuUzAn8=,tag:Ta8Z3hQAjX/QxMBIvyqqhg==,type:str]
+    encrypted_regex: client
+    version: 3.10.2

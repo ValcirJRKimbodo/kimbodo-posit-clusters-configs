@@ -1,0 +1,26 @@
+global:
+    postgresql:
+        auth:
+            postgresPassword: ENC[AES256_GCM,data:hz71Fg==,iv:74VLSD/HlO5IDvBIkB8KpUA/WkOKSU/sqVUH6Npfcok=,tag:lAy9eNJys5fqNTc32+VdgA==,type:str]
+            username: rspmuser
+            password: ENC[AES256_GCM,data:XjOt2MLp75bbGf0=,iv:HRqA7+yTtL82oyQqiMsesf+UyeTsL2rCTbilJM3tWy4=,tag:DtSpgeg7NTyjafz+WLQh6Q==,type:str]
+            database: rstudio_pm
+primary:
+    nodeSelector:
+        apptype: workspaces
+readReplicas:
+    nodeSelector:
+        apptype: workspaces
+backup:
+    cronJob:
+        nodeSelector:
+            apptype: workspaces
+sops:
+    gcp_kms:
+        - resource_id: projects/gcp-k8s-demo-posit/locations/global/keyRings/sops-keyring/cryptoKeys/sops-key
+          created_at: "2025-07-21T20:14:45Z"
+          enc: CiQAi2o7BvLP25DceOJEBriCaJEhdugJqSkhYckYalgEIhIFcHASSQD9pUq7L8ERX8+//XY2rYV9fmWzb/Br4mxg2fO+0Sm2eZIRBerZUwWL920G3I5zS6cJ2iPZVXYjI/inKAISy+JQxJCcXk5OoqQ=
+    lastmodified: "2025-07-21T20:14:46Z"
+    mac: ENC[AES256_GCM,data:tJK2ZOf5SXNpfyRuTATscE5I/LrDTylW3r1XgCejEvS6HpAFHRYmtkWpdKBvOYuJFY07dIqPxDxUXU3sbqOU1+Q8NWVSXbsTCaxkrAXtY4YoSyT9ND4dGX9Ei7WSiH7VN8eENnNGsc77r+kAej1h5mpUeQd9kny2zqPxq+gRJIg=,iv:hjwDvw1vWnRG2a4GY61vRj7+ztiMlWUT7qyDHO80eXc=,tag:7KXoWj9ZOmRwFWt0KwtEyQ==,type:str]
+    encrypted_regex: License|password|Password
+    version: 3.10.2

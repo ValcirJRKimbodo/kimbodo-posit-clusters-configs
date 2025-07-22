@@ -1,0 +1,11 @@
+nodeSelector:
+  apptype: workspaces
+webhook:
+  nodeSelector:
+    apptype: workspaces 
+cainjector:
+  nodeSelector:
+    apptype: workspaces 
+startupapicheck:
+  nodeSelector:
+    apptype: workspaces 

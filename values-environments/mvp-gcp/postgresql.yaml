@@ -1,0 +1,19 @@
+primary:
+    nodeSelector:
+        apptype: workspaces
+readReplicas:
+    nodeSelector:
+        apptype: workspaces
+backup:
+    cronJob:
+        nodeSelector:
+            apptype: workspaces
+sops:
+    gcp_kms:
+        - resource_id: projects/gcp-k8s-demo-posit/locations/global/keyRings/sops-keyring/cryptoKeys/sops-key
+          created_at: "2025-07-21T20:14:52Z"
+          enc: CiQAi2o7BmEhEEo+X98CsmamisB8HW/XOCXXZOsbtFNj/sGPRjcSSQD9pUq7Ts/ikKv7hI0EKL4RX38MoXz7BB8OS0reymOb92zzoC16GU5wLR4aJhjazBHdbCJce9yb3vqHENIEOV3AihISHwsXt58=
+    lastmodified: "2025-07-21T20:14:53Z"
+    mac: ENC[AES256_GCM,data:kIbles2BHekmArgmuSI7NjzJGdTGVIIzPDkHxZfm00rpGpKZGm/gFSd7cRYqZ7OjS26DNUc+zWOw8ArixpdCv7V9B4btpwVcTmcR+kCH87fZxzuYxOQQX/lFF+iHyXobw2i50W2wnhDcfT8L6z+xawb8MfR0bcVnCUUSQPt5OqI=,iv:/mIKuLymELXT8u6DuWr4FaAVkHvyxmncQmbnSy/gEJA=,tag:ZFPu6Ze7U+yrKzTOLFPsIQ==,type:str]
+    encrypted_regex: License|password|Password
+    version: 3.10.2

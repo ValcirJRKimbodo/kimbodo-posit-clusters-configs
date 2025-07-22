@@ -1,0 +1,44 @@
+global:
+    wbLicense: ENC[AES256_GCM,data:tJ5aB3z9QLH0WW/kOORte9bgJKbnWQQeB08NgcTWNlFrn//Q9FgoTg5oRBpq0kWN9Y1g8tb9FRsULp53m7F1G/+V9gy9mOqpqOQaOuRCt2lIHe+C39xPy741fZkN+KlteDkIAcei5MuAlDZRi7uc9TSZaDlrJ2CQ8ES9iSuOK7Q9FZL6cOpndknpTgfZaePWjtBF0XOp+oB3/zUhjKQx385iKDqOZbt4PP6NefZ7XxkGtyDD2FQcLVQdEE5Qhdo449zeSTwYT4Z42GQyuTtja/tcKcoDwR241zByKUz+hrbmysudvDpb0R+Aqg4AwUtpP7aZ7vOsDl0iy0zKHL/Ce7LnykYs+9OX+b0/UfUOiG0/7FEu1a78iqRSMG1nSTDT5PQR858s91VRal173tCcPGV7aHPIpJct3dYrUX1SM59CKjfNaBrsiEsVtBHwvD7Gpq6iM7ULaayV6EeTWatT8CfCdV3rDOdDn7zyC6K9RKVsOrqo1rlA8FjGBTVwd5Ksltg+bDa0y/9Rpap6d0UIz6T03ti0v8dbRHbI0m4uCMSnydXnAtLmlN34kcslQvXobLVuNg+9Ygz03yQpUAOF59dZkP3bIDon056r660G3kJFbQu8eUDI6iPKxipIm/x6Gn4HGqaiG6aXBlSqUEx1Tmd8G6sVsQ9fS4zV2drFluJuGQBCXyRhpXrgChO7pOrZ+WhVRr6I3r2C+R+AKi/Gq9d2RacZ+C4oP0bg4nftOrism0wHJZtiJJt5BcqpKPwp9sAYJd3XPXepnhM4leURBEfrA5ooaFDZDXtrRNRJHGXYomsB0x+36byQjpPagFvOG8xGrRe00OU3J+H+kRIhzqvvcrQnxvkoY+MRHmf3OFOIbv0puPG4Pn/pVc1bYg/2GuTUFCpYj0qfUL9lqsDos3RKgUx6WJ1IrgzBPVZId+tfPSgYDVEEFfxpebn2CGJH+AsfWIYrw/wQgeE8V3gZhyPWWF68qrjBxEEm2aqanBCZA3iNQgdcKAewxNl4BkPe0WhJvs0DCy6Q0nngT5qKplTdmcCYUD57+jSYW0np+09tnikVb7NTmzviqcaj+DMFkjzfJGt7ZKBu3PAcTWPZhmsCSbtLJ7Nfbo/mvqN7D8pyXfFHUqf9y6z4IxO1CDn+8Vhqfo290hxW2dUgL+/Dvk2f+tQ+2ZmfuHD6VTvQ8oeHwzdKHBTncqoXrUcteYxBuOHV4XkB2IZv64epux+wq+YA+HfFGA0UcqWbE7AHDiKGGyKqeyjzbHWKIyy6eY/qfb0d+kkQS0yGqKpPMdW3VGMtBwPbby8e+UlAZxuHxl6soPNCJlWTLzfs263IoMYwHpBWxKsB5gG2NSrEoaYXygG2UZEZlndxMVuW4qNI3wp6JlPDAKWGRUbKJb1nlISQ0MoIVwXGg3ynnELkJl8TKjxg4nr1fzQsj//xxPlSnvDkmRtI5xjjVGky4zGVIwe4oJ9tdM1RYs1+WyawS4VQi4Z1E0Kx9PFIdQsq/KZhSIQGvlCfjbP9BRHEfsfsoI48KeBxx86yhK4ELMwQfjgQTDLSwFWyXoPM8uiYVbcpsJmYo/iPvLIH7C+MQIxAdnmeTlBgwqWcbwXYWlq5Sc0U57u1U20Qb1bsmEDYc74bky6cM43mdHrndraytZetGthLFO471nAXlu5SMd/rtYsRWW5hKqzn5LJ132E7Hn2J0HOQ4jRAz/RG6C7Qceu9/MbSpaTvs5C1A+NsjrJiPzvqvZ32eDVB5x5py4nZ5ezTweOMJpcIADe3ZYiOUGYdNd+kGIKh6WnVWZmXs+nD,iv:GwHPxpLlEagBu/D1f00wogEe8HB2WJaINpvsrK1qsfo=,tag:S4iiAXwEWV93oSAUZ9BhyQ==,type:str]
+    ctLicense: ENC[AES256_GCM,data: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,iv:d73HDyVRoM2Am3YaR+Mpl+O1w6InXsfeJEcyzP+c+iI=,tag:MuT4odbag1ZwHZctWvUT3A==,type:str]
+    pmLicense: ENC[AES256_GCM,data:3lb3m8QtD7CnWealuUeOcHNi2Lw4GR+tHPkj++TFvnR79s3Cu04ayCTJrr9TnPqkuzREElJnNDL2uSPHmevyBWWoVOItcK2efxvWsVIXAt6WOF+CD7UgEkepQZYgbkLbjh4V1L2CIIEmbJ5i3zIhNd7nB87NxG2n/6ORZIXsmPRDf8pwKzuY/fXDY+akNgRgiECMoErK8JvhD9qandF++mVL44ZDr0mtegHQug9psbs2GLFmKUyIrvKcAhHPMv+KCWEoS6Jbjzxkx8H0giqYO4Igoxrtj0dqnDXrFacL8PZECpScJLIm3AreIekE7jEm8egLSHFQO+jNZdgDPEcfncU2B2Zwh5d3VkgkpYIaoPIeJu8HZW62M3oAUo5vKFtYudn7YCoMz1/g5NWRQIf9w3DXNSr+McNd1zFtqA30KH4lQc/thjBQalTiOXAXor0M6UIJsmnJYMJIiG80x5DDmSfFCkAEAVUdoEuV6UWi3ElqgLsjlv/bNzB0phM0gEwfnQiH3Nh4P6PXx18UmwU60IN+iY2O+3zpCKmd08iq15kQelkO9v2EqdPWJ6LPO7x1MXAbMV1HddqzYz735LAjW+XP1mWufFj3Cw3vPPXpObEry0QEI0j/jOiXpZEVRRY9NEfFohv02H3rc8IKpEt7xtF0IOvJEJl/E1AuwRj+FJwmXN600ryFWG7Yr9ATkTwDICeEf3hbO+vkY37hAMX4cMPDYh9zJDxdFFvz+719k+5Ta+53A+B0E0QFaCdf7Efc1Ymk2oS9PWVNUvpq3zztyzx61Cfn9LnXnKyzBY/G/ctcZWkcSxO8J3FftEnncd1yT22pypINsB3KA4SOPYGw/0cp1P7jyH3S+3xcgCp5Xmn2/MNws8gnE1hTPbQgTdcl+XS0djt+cqH9ULKgP/Xx5E3BsTqeSMooq8kFGEw+8b7/7VcIOz4gxH3G2ai+8i1FiGUdMD2K5Y3hLhsq5U4YI+QczwB4iWQVZ2Bzhf0fR0Te2DM1xpBwvc2OaAG3sF2EqOHM1Cgq+sZClfXITqEEQ7AfbOwP4SSB1pru44Kx6JjcH5VYhn1y7galrUq7EZuIiIy+VEbwvbIVvhQfA9qzqTKsgwXTM0sLGJBQv2reUl+9uyrj4u+9pRIHaT4Ch17xcTPV/Nr8hjYD2oFq4sysoujX5ltgTwdgSRFU64+eD2wP7AmzfNGKZWBx3SGy2L5mQCfw4qWDzcqkH9BCbzGhL8ab/H1K6JKajqAoHbhVCZveGSzsA486Y8utlcF4BMqsOBS/ZbL1iVBbHL85Xq0MaaeviPhR8q5HWEFTNHZQ1OKGHY9mT3Xx0Z+VJe+vZ25J+UqsqB1RmUjhnMOr88au2RbwPMKT6eR2tN42ChYQ3t5YoeI6kLwHWElwW+kBIs/Pe424Asnmo1T2lUuUYS+f1M6XL1jd+OE8lolRAu/H4REvhqb5zY2UqgrOBgXUwYodggu9jOXw7272U2wQm1CCZXEdKWkleBLluoJTGJbMi6xp2DJY4NXSFFvXhSVhOt8P664PKSBIe88n1WS7h6nvS+OhTnpr/QAaYri5fVMHzRapDmBwyVbKUaJzpIutAikChDa4f/P4yYj+9TWWgubxxypfo7R/HZDMX5Wz2humG6y+vvtYWvVrUQ==,iv:u83VVvyPLDYnvzW85ALVFxDHiyI2ev9wz5FiLuggd/U=,tag:CD7rqoWgRf0/Q0I7MU7M8A==,type:str]
+    clusterIssuer:
+        email: kimbodo@kimbodo.com
+    postgresql:
+        auth:
+            postgresPassword: ENC[AES256_GCM,data:d6xF7Q==,iv:LeD6pYSHfm5yajSvDa0GhUHQzxWlFAtQFQ5gLo/tpOg=,tag:vplMMBNXleLIamRfbaSLBQ==,type:str]
+            username: connect
+            password: ENC[AES256_GCM,data:zsWlXGOIYinfvn0=,iv:69OI687ZTGKiVndZhs4kLvCuUuxuTydbJt1ZzDLLCVw=,tag:GEFBMklHaeiAsjpYLqefyw==,type:str]
+            database: connect
+    cloudProvider: GCP
+    rbac:
+        users:
+            - name: dev-test@kimbodo.com
+              role: editor
+rstudio-connect:
+    fullnameOverride: rstudio-connect
+    ingressHost: posit01gcp-connect.kimbodo.com
+    hpa:
+        minReplicas: 1
+        maxReplicas: 5
+rstudio-workbench:
+    fullnameOverride: rstudio-workbench
+    ingressHost: posit01gcp-workbench.kimbodo.com
+    hpa:
+        minReplicas: 1
+        maxReplicas: 5
+rstudio-pm:
+    fullnameOverride: rstudio-package-manager
+    ingressHost: posit01gcp-package.kimbodo.com
+    hpa:
+        minReplicas: 1
+        maxReplicas: 5
+sops:
+    gcp_kms:
+        - resource_id: projects/gcp-k8s-demo-posit/locations/global/keyRings/sops-keyring/cryptoKeys/sops-key
+          created_at: "2025-07-21T20:12:48Z"
+          enc: CiQAi2o7Bl/a6HhKjzuS+8fEFMFvhnBGgZE/wkH8i9JQOvF420ESSQD9pUq7ZED5urosSx/OswKvVrHs9LRwIdodSTjwqIHmtSBje4dMIFdH2Wz9mpzALWtBpc5xSgdEnBmoXdOGpyMpYGix+LP/OUY=
+    lastmodified: "2025-07-21T20:12:48Z"
+    mac: ENC[AES256_GCM,data:tD3D+PV4MEJXB24TGl1IZIeG+7uz0H/+tMP1QjR1h7nPjbDoOVXchQ4XHHPH5fP9kOAVfqL0WLqmKQJyWDPdSgCelLlZExLSeiEoGeYN3yUJxmJuK1vkylE1QV/ZnA0fcg7u5LNKVlH7rgw1+nZcpSleyYXr/r04fxaibGv7J4o=,iv:1PW5yW1H/1QJ+MklVuyowJmtgVduoeoRu6jyumcZgKo=,tag:R+7Fy14Xruw3aKo/XpZcIA==,type:str]
+    encrypted_regex: License|password|Password
+    version: 3.10.2

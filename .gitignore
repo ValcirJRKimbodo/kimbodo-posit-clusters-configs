@@ -1,0 +1,14 @@
+# Various IDEs
+.project
+.idea/
+*.tmproj
+.vscode/
+
+temp.yaml
+
+o.yaml
+values/*
+*.tgz
+
+Chart.lock
+

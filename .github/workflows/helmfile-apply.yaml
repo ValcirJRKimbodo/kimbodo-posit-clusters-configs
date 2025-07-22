@@ -1,0 +1,35 @@
+name: Helmfile Deployment
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Target environment (e.g., mvp-gcp, mvp-aks)'
+        required: true
+        default: 'mvp-gcp'
+
+jobs:
+  deploy:
+    name: Deploy with Helmfile
+    runs-on: ubuntu-latest
+
+    container:
+      image: kimbodovalcir/kimbodo-posit-actions:latest
+
+    env:
+      ENVIRONMENT: ${{ github.event.inputs.environment }}
+      SOPS_KMS: projects/gcp-k8s-demo-posit/locations/global/keyRings/sops-keyring/cryptoKeys/sops-key
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Authenticate with Google Cloud
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: '${{ secrets.GOOGLE_CREDENTIALS }}'
+
+      - name: Deploy using Helmfile
+        run: |
+          echo "Deploying to environment: $ENVIRONMENT"
+          helmfile -e $ENVIRONMENT apply

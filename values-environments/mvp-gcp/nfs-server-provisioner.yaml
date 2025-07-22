@@ -1,0 +1,9 @@
+nodeSelector:
+  apptype: workspaces
+persistence:
+  enabled: true
+  size: "50Gi"
+storageClass:
+  name: rsc-nfs
+  mountOptions:
+    - vers=4

@@ -1,0 +1,10 @@
+controller:
+  nodeSelector:
+    apptype: workspaces    
+  service:
+    loadBalancerIP: 34.173.220.241
+  allowSnippetAnnotations: true
+
+defaultBackend:
+  nodeSelector:
+    apptype: workspaces
