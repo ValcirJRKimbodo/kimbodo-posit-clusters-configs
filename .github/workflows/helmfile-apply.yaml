@@ -28,6 +28,13 @@ jobs:
         uses: google-github-actions/auth@v2
         with:
           credentials_json: '${{ secrets.GOOGLE_CREDENTIALS }}'
+          
+      - name: Set GKE credentials
+        uses: google-github-actions/get-gke-credentials@v2
+        with:
+          project_id: gcp-k8s-demo-posit
+          cluster_name: kimbodo-posit-cluster
+          location: us-central1
 
       - name: Deploy using Helmfile
         run: |
