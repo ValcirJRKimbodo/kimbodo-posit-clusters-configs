@@ -9,3 +9,5 @@ cainjector:
 startupapicheck:
   nodeSelector:
     apptype: workspaces 
+
+installCRDs: true
