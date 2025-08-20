@@ -17,19 +17,19 @@ global:
               role: editor
 rstudio-connect:
     fullnameOverride: rstudio-connect
-    ingressHost: posit01gcp-connect.kimbodo.com
+    ingressHost: connect-k8s.valcir.dev
     hpa:
         minReplicas: 1
         maxReplicas: 5
 rstudio-workbench:
     fullnameOverride: rstudio-workbench
-    ingressHost: posit01gcp-workbench.kimbodo.com
+    ingressHost: workbench-k8s.valcir.dev
     hpa:
         minReplicas: 1
         maxReplicas: 5
 rstudio-pm:
     fullnameOverride: rstudio-package-manager
-    ingressHost: posit01gcp-package.kimbodo.com
+    ingressHost: package-k8s.valcir.dev
     hpa:
         minReplicas: 1
         maxReplicas: 5

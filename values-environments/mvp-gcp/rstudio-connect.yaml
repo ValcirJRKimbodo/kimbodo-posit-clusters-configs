@@ -1,5 +1,5 @@
 fullnameOverride: rstudio-connect
-ingressHost: posit01gcp-connect.kimbodo.com
+ingressHost: connect-k8s.valcir.dev
 nodeSelector:
     apptype: workspaces
 launcher:

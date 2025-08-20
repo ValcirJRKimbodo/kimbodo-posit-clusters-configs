@@ -1,5 +1,5 @@
 fullnameOverride: rstudio-package-manager
-ingressHost: posit01gcp-package.kimbodo.com
+ingressHost: package-k8s.valcir.dev
 
 nodeSelector:
   apptype: workspaces

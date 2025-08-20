@@ -2,7 +2,7 @@ controller:
   nodeSelector:
     apptype: workspaces    
   service:
-    loadBalancerIP: 34.173.220.241
+    loadBalancerIP: 34.41.84.13
   allowSnippetAnnotations: true
 
 defaultBackend:
